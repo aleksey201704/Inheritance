@@ -47,7 +47,7 @@ public:
 		cout << "H-Desructor" << this << endl;
 	}
 
-	void print()const
+	virtual void print()const
 	{
 		cout << last_name << " " << first_name << " " << age << " лет \n";
 	}
@@ -204,20 +204,37 @@ public:
 
 };
 
+
 void main()
 {
 	setlocale(LC_ALL,"");
 
-	Humen human("Tupenko", "Vasya ", 23);
-	human.print();
-	Student student("Prim", "Dinamo", 20, "RPO", "SPD_121", 90, 85);
-	student.print();
+	//Humen human("Tupenko", "Vasya ", 23);
+	//human.print();
+	//Student student("Prim", "Dinamo", 20, "RPO", "SPD_121", 90, 85);
+	//student.print();
 
-	Teacher teacher("White", "Walter", 50, "Chemisrt", 20);
-	teacher.print();
-		
-	Gradute gradute("Scrader", "Hank", 40, "Criminal", "SBD-121", 90, 85, "DIPLOM");
-	gradute.print();
-	
+	//Teacher teacher("White", "Walter", 50, "Chemisrt", 20);
+	//teacher.print();
+	//	
+	//Gradute gradute("Scrader", "Hank", 40, "Criminal", "SBD-121", 90, 85, "DIPLOM");
+	//gradute.print();
+
+	//-------------------Generalisation-----------------
+	Humen* group[] =
+	{
+		new Student("Prim", "Dinamo", 20, "RPO", "SPD_121", 90, 85),
+		new Teacher("White", "Walter", 50, "Chemisrt", 20),
+		new Gradute("Scrader", "Hank", 40, "Criminal", "SBD-121", 90, 85, "DIPLOM"),
+		new Student("Ver","Tomas",30,"Crinamilst","Vice",98,95),
+		new Teacher("Diaz","Recardo",50,"Weapons Distrabtiob",30)
+	};
+	// --------------- Specialisation (Уточнение): -----------
+	for (int i = 0; i < sizeof(group)/sizeof(Humen*); i++)
+	{
+		group[i]->print();
+		cout << "---------------"<<endl;
+	}
+
 
 }
