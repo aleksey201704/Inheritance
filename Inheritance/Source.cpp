@@ -40,11 +40,11 @@ public:
 		set_last_name(last_name);
 		set_first_name(first_name);
 		set_age(age);
-		cout << "H-Constructo:" << this << endl;
+		/*cout << "H-Constructo:" << this << endl;*/
 	}
 	~Humen()
 	{
-		cout << "H-Desructor" << this << endl;
+		/*cout << "H-Desructor" << this << endl;*/
 	}
 
 	virtual void print()const

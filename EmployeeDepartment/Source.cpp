@@ -2,10 +2,36 @@
 #include <iostream>
 
 using namespace std;
+class PermanentEmployee;
+class HourlyEmployee;
+int AllPaymant(PermanentEmployee Perobj, HourlyEmployee obj);
+
+class Departament 
+{
+	std::string nameDep;
+public:
+	const std::string& get_nameDep()const
+	{
+		return nameDep;
+	}
+	void set_nameDep(const std::string& nameDep)
+	{
+		this->nameDep = nameDep;
+	}
+
+	Departament (const std::string& nameDep)
+	{
+		set_nameDep(nameDep);
+	}
+
+	~Departament() {};
+
+
+};
 
 class Human
 {
-//protected:
+protected:
 	std::string last_name;
 	std::string first_name;
 	unsigned int age;
@@ -47,15 +73,16 @@ public:
 		/*cout << "H-Desructor" << this << endl;*/
 	}
 
-	/*virtual*/ void print()const
+	virtual void print()const
 	{
 		cout << last_name << " " << first_name << " " << age << " лет \n";
 	}
 
 };
 
-class PermanentEmployee: public Human // с постоянной оплатой
+class PermanentEmployee:public Departament, public Human // с постоянной оплатой
 {
+
 	int PerPaymant;
 public:
 	//==========Set Get==============
@@ -68,23 +95,25 @@ public:
 		this->PerPaymant = PerPaymant;
 	}
 	//==========Constructors==========
-	PermanentEmployee(
+	PermanentEmployee (
+		const std::string& nameDep,
 		const std::string& last_name, const std::string& first_name, unsigned int age,
 		int PerPaymant
-	):Human(last_name,first_name,age)
+	):Departament(nameDep),Human(last_name,first_name,age)
 	{
 		set_PerPaymant(PerPaymant);
 	}
 	~PermanentEmployee(){}
 	
 	//==========Method================
-	void print() {
+	void print()const
+	{
 		Human::print();
 		cout << "Постоянная зарплата: " << PerPaymant << endl;
 	}
 };
 
-class HourlyEmployee : public Human // (с почасовой оплатой)
+class HourlyEmployee :public Departament, public Human // (с почасовой оплатой)
 {
 	int HEmplo; // Оплата за час
 	int Tday; // Количество часов отработанных
@@ -107,40 +136,66 @@ public:
 		this->Tday = Tday;
 	}
 	//==========Constructors==========
-	HourlyEmployee(
+	HourlyEmployee(const std::string& nameDep,
 		const std::string& last_name, const std::string& first_name, unsigned int age,
 		int HEmplo, int Tday
-	) :Human(last_name, first_name, age)
+	) :Departament(nameDep) ,Human(last_name, first_name, age)
 	{
 		set_HEmplo(HEmplo);
 		set_Tday(Tday);
 	}
 	~HourlyEmployee(){}
 	//==========Method================
-	int Paymant() // Зарплата почасовой оплаты
+	int Paymant()const // Зарплата почасовой оплаты
 	{
 		int pay;
 		pay = HEmplo * Tday;
 		return pay;
 	}
 
-	void print()/*const*/ 
+	void print()const
 	{
 		Human::print();
 		cout << "Час оплата: " << HEmplo << " Количесвто часов: " << Tday << endl;
-		cout <<"Зарплата: " << Paymant();
+		cout <<"Зарплата: " << Paymant()<<endl;
 	}
 };
+
 
 
 void main()
 {
 	setlocale(LC_ALL,"");
 	
-	PermanentEmployee perHuman1("Dark","Folor",35,5000);
-	HourlyEmployee perHuman2("Black", "Raid", 45, 10, 5);
+	PermanentEmployee perHuman1("Departament","Dark", "Folor", 35, 5000);
+	HourlyEmployee perHuman2("Departament", "Black", "Raid", 45, 10, 5);
 
+
+	Human* Depart[] =
+	{ 
+		new PermanentEmployee ("Departament","Dark", "Folor", 35, 5000),
+		new HourlyEmployee ("Departament","White", "Folor", 40,10,2),
+		new HourlyEmployee ("Departament","Reder", "Rafain", 18,10,4),
+
+	};
+
+	for (int i = 0; i < sizeof(Depart)/sizeof(Human*); i++)
+	{
+		
+		Depart[i]->print();
+		cout << "----------------" << endl;
+	}
 	
-	perHuman1.print();
-	perHuman2.print();
+	
+
+	/*perHuman1.print();
+	perHuman2.print();*/
+}
+
+
+int AllPaymant(PermanentEmployee Perobj, HourlyEmployee obj)
+{
+	int Total;
+	Total = Perobj.get_PerPaymant();
+	return Total;
 }
