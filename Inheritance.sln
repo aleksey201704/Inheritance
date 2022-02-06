@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Inheritance", "Inheritance\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EmployeeDepartment", "EmployeeDepartment\EmployeeDepartment.vcxproj", "{6468E97C-5E8E-44DA-845B-C665DD4E2AD3}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Hierarchy_Geometric_Shapes", "Hierarchy_Geometric_Shapes\Hierarchy_Geometric_Shapes.vcxproj", "{DDB54E73-1E49-47F0-B663-DC6885A3825A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{6468E97C-5E8E-44DA-845B-C665DD4E2AD3}.Release|x64.Build.0 = Release|x64
 		{6468E97C-5E8E-44DA-845B-C665DD4E2AD3}.Release|x86.ActiveCfg = Release|Win32
 		{6468E97C-5E8E-44DA-845B-C665DD4E2AD3}.Release|x86.Build.0 = Release|Win32
+		{DDB54E73-1E49-47F0-B663-DC6885A3825A}.Debug|x64.ActiveCfg = Debug|x64
+		{DDB54E73-1E49-47F0-B663-DC6885A3825A}.Debug|x64.Build.0 = Debug|x64
+		{DDB54E73-1E49-47F0-B663-DC6885A3825A}.Debug|x86.ActiveCfg = Debug|Win32
+		{DDB54E73-1E49-47F0-B663-DC6885A3825A}.Debug|x86.Build.0 = Debug|Win32
+		{DDB54E73-1E49-47F0-B663-DC6885A3825A}.Release|x64.ActiveCfg = Release|x64
+		{DDB54E73-1E49-47F0-B663-DC6885A3825A}.Release|x64.Build.0 = Release|x64
+		{DDB54E73-1E49-47F0-B663-DC6885A3825A}.Release|x86.ActiveCfg = Release|Win32
+		{DDB54E73-1E49-47F0-B663-DC6885A3825A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

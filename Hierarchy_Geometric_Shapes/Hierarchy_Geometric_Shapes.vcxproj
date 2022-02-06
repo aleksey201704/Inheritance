@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{6468e97c-5e8e-44da-845b-c665dd4e2ad3}</ProjectGuid>
-    <RootNamespace>EmployeeDepartment</RootNamespace>
+    <ProjectGuid>{ddb54e73-1e49-47f0-b663-dc6885a3825a}</ProjectGuid>
+    <RootNamespace>HierarchyGeometricShapes</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,11 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram2.cd" />
-    <None Include="ClassDiagram21.cd" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

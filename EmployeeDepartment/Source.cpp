@@ -2,9 +2,6 @@
 #include <iostream>
 
 using namespace std;
-class PermanentEmployee;
-class HourlyEmployee;
-int AllPaymant(PermanentEmployee Perobj, HourlyEmployee obj);
 
 class Departament 
 {
@@ -18,7 +15,7 @@ public:
 	{
 		this->nameDep = nameDep;
 	}
-
+	
 	Departament (const std::string& nameDep)
 	{
 		set_nameDep(nameDep);
@@ -73,14 +70,14 @@ public:
 		/*cout << "H-Desructor" << this << endl;*/
 	}
 
-	virtual void print()const
+	void print()const
 	{
 		cout << last_name << " " << first_name << " " << age << " лет \n";
 	}
 
 };
 
-class PermanentEmployee:public Departament, public Human // с постоянной оплатой
+class PermanentEmployee: public Departament,  public Human // с постоянной оплатой
 {
 
 	int PerPaymant;
@@ -95,6 +92,7 @@ public:
 		this->PerPaymant = PerPaymant;
 	}
 	//==========Constructors==========
+	
 	PermanentEmployee (
 		const std::string& nameDep,
 		const std::string& last_name, const std::string& first_name, unsigned int age,
@@ -113,7 +111,7 @@ public:
 	}
 };
 
-class HourlyEmployee :public Departament, public Human // (с почасовой оплатой)
+class HourlyEmployee : public Departament, public Human // (с почасовой оплатой)
 {
 	int HEmplo; // Оплата за час
 	int Tday; // Количество часов отработанных
@@ -161,7 +159,28 @@ public:
 	}
 };
 
+class TotalDepartament: public PermanentEmployee, public HourlyEmployee
+{
+	int sum;
+public:
+	int get_sum()const
+	{
+		return sum;
+	}
+	void set_sum(int sum)
+	{
+		this->sum = sum;
+	}
+	
+	~TotalDepartament() {};
+	
 
+	int TotalSum()
+	{
+		sum = get_PerPaymant() + HourlyEmployee::Paymant();
+		return sum;
+	}
+};
 
 void main()
 {
@@ -179,23 +198,9 @@ void main()
 
 	};
 
-	for (int i = 0; i < sizeof(Depart)/sizeof(Human*); i++)
-	{
 		
-		Depart[i]->print();
-		cout << "----------------" << endl;
-	}
-	
-	
 
 	/*perHuman1.print();
 	perHuman2.print();*/
 }
 
-
-int AllPaymant(PermanentEmployee Perobj, HourlyEmployee obj)
-{
-	int Total;
-	Total = Perobj.get_PerPaymant();
-	return Total;
-}
